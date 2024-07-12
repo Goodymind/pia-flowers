@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background: #1e1e1e;
+        }
+
+        .flower {
+            animation: tilt 5s ease-in-out infinite;
+            transform-origin: bottom;
+            height: 350px;
+            overflow: hidden;
+            animation-name: tilt, grow;
+            animation-duration: 5s, 1s;
+            animation-timing-function: ease-in-out, ease-in-out;
+            animation-iteration-count: infinite, 1;
+            animation-delay: 1s, 0s;
+            animation-direction: alternate, normal;
+            padding: 0px 15px;
+        }
+
+        .head {
+            position: relative;
+            display: grid;
+            grid-template: 1fr/1fr;
+            width: 140px;
+            height: 160px;
+            margin: auto;
+            animation: tilt 5s ease-in-out infinite alternate;
+            transform-origin: bottom;
+            z-index: 4;
+            animation-delay: 2s;
+        }
+
+        .head * {
+            grid-row: 1 / 1;
+            grid-column: 1 / 1;
+            /* margin: auto; */
+            margin: 0px;
+            padding: 0px;
+            z-index: 3;
+        }
+
+        .head .petal1 {
+            background: #ff9c40;
+            clip-path: polygon(50% 10%, 70% 0, 94% 37%, 6% 37%, 30% 0);
+        }
+
+        .head .petal2 {
+            background: #f8be39;
+            clip-path: path("M60 25C48.8 5.8 16.3334 0.666667 1.50002 0.5C1.50002 60.5 -2.49999 85 47.5 117C56.3334 94.3333 71.2 44.2 60 25Z");
+            transform: translate(0px, 33px);
+        }
+
+        .head .petal3 {
+            background: #f1e58f;
+            clip-path: path("M99.5 1C105 50.5 106 140.5 3.5 148.5C-4.33334 100.667 3.89999 4.2 99.5 1Z");
+            transform: translate(42px, 13px);
+        }
+
+        .leaf1 {
+            background: #406c48;
+            margin: auto;
+            clip-path: path("M0.5 1.5C22.5 20.5 64.5 77 67 115C32.5 99.5 0.5 54.5 0.5 1.5Z");
+            width: 70px;
+            height: 120px;
+            transform-origin: bottom;
+            transform: translate(-30px, -138px) rotate(-5deg);
+            animation: leaf1animation 5s ease-in-out infinite alternate;
+            animation-delay: 1s;
+            z-index: 1;
+        }
+
+        .leaf2 {
+            position: relative;
+            clip-path: path("M72 1.5C62.5 29.1667 35.1 89.9 1.49998 111.5C10.5 29 46.5 11.5 72 1.5Z");
+            background: #406c48;
+            width: 70px;
+            height: 120px;
+            z-index: 5;
+            margin: auto;
+            transform: translate(34px, -256px) rotate(-5deg);
+            transform-origin: bottom;
+            animation: leaf2animation 5s ease-in-out infinite alternate;
+            animation-delay: 1s;
+        }
+
+        .stem {
+            position: relative;
+            background: #529174;
+            width: 30px;
+            height: 175px;
+            margin: auto;
+            transform: translate(0px, -10px);
+            clip-path: path("M 0 0 L 0 160 C 0 165 5 175 15 175 C 25 175 30 165 30 160 L 30 0 Z");
+            z-index: 2;
+        }
+
+        .garden {
+            display: flex;
+            justify-content: space-around;
+            align-items: end;
+            height: 95vh;
+            gap: 0px;
+            flex-wrap: wrap;
+        }
+
+        @keyframes tilt {
+            0% {
+                transform: rotate(0deg);
+
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
+
+            100% {
+                transform: rotate(-5deg);
+            }
+        }
+
+        @keyframes leaf1animation {
+            0% {
+                transform: translate(-30px, -138px) rotate(-5deg);
+            }
+
+            100% {
+                transform: translate(-30px, -138px) rotate(5deg);
+            }
+        }
+
+        @keyframes leaf2animation {
+            0% {
+                transform: translate(34px, -256px) rotate(-5deg);
+            }
+
+            100% {
+                transform: translate(34px, -256px) rotate(5deg);
+            }
+        }
+
+        @keyframes grow {
+            0% {
+                height: 0px;
+            }
+
+            100% {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="garden">
+        <div class="flower">
+            <div class="head">
+                <div class="petal1"></div>
+                <div class="petal2"></div>
+                <div class="petal3"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#9a0000"></div>
+                <div class="petal2" style="background-color:#dc151c"></div>
+                <div class="petal3" style="background-color:#e74e50"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#877cc0"></div>
+                <div class="petal2" style="background-color:#99a0d7"></div>
+                <div class="petal3" style="background-color:#b1b6e0"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#9a0000"></div>
+                <div class="petal2" style="background-color:#dc151c"></div>
+                <div class="petal3" style="background-color:#e74e50"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1"></div>
+                <div class="petal2"></div>
+                <div class="petal3"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#877cc0"></div>
+                <div class="petal2" style="background-color:#99a0d7"></div>
+                <div class="petal3" style="background-color:#b1b6e0"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#9a0000"></div>
+                <div class="petal2" style="background-color:#dc151c"></div>
+                <div class="petal3" style="background-color:#e74e50"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1"></div>
+                <div class="petal2"></div>
+                <div class="petal3"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#9a0000"></div>
+                <div class="petal2" style="background-color:#dc151c"></div>
+                <div class="petal3" style="background-color:#e74e50"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#877cc0"></div>
+                <div class="petal2" style="background-color:#99a0d7"></div>
+                <div class="petal3" style="background-color:#b1b6e0"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#877cc0"></div>
+                <div class="petal2" style="background-color:#99a0d7"></div>
+                <div class="petal3" style="background-color:#b1b6e0"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1"></div>
+                <div class="petal2"></div>
+                <div class="petal3"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#877cc0"></div>
+                <div class="petal2" style="background-color:#99a0d7"></div>
+                <div class="petal3" style="background-color:#b1b6e0"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#9a0000"></div>
+                <div class="petal2" style="background-color:#dc151c"></div>
+                <div class="petal3" style="background-color:#e74e50"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1"></div>
+                <div class="petal2"></div>
+                <div class="petal3"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#9a0000"></div>
+                <div class="petal2" style="background-color:#dc151c"></div>
+                <div class="petal3" style="background-color:#e74e50"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1" style="background-color:#877cc0"></div>
+                <div class="petal2" style="background-color:#99a0d7"></div>
+                <div class="petal3" style="background-color:#b1b6e0"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+        <div class="flower">
+            <div class="head">
+                <div class="petal1"></div>
+                <div class="petal2"></div>
+                <div class="petal3"></div>
+            </div>
+            <div class="stem"></div>
+            <div class="leaf1"></div>
+            <div class="leaf2"></div>
+        </div>
+    </div>
+</body>
+
+</html>
